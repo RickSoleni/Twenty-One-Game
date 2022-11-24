@@ -6,13 +6,15 @@ response = deck.json()
 
 twentyonedeck = response["deck_id"]
 
+
 def new_game(deck_id):
     shuffle = requests.get(f"https://deckofcardsapi.com/api/deck/{deck_id}/shuffle/")
-    draw1card = requests.get(
+    draw2card = requests.get(
         f"https://deckofcardsapi.com/api/deck/{deck_id}/draw/?count=2"
     )
-    card = draw1card.json()
+    card = draw2card.json()
     return [card["cards"][0]["value"], card["cards"][1]["value"]]
+
 
 def draw_one_card(deck_id):
     draw1card = requests.get(
@@ -20,6 +22,7 @@ def draw_one_card(deck_id):
     )
     card = draw1card.json()
     return card["cards"][0]["value"]
+
 
 cards = new_game(twentyonedeck)
 
