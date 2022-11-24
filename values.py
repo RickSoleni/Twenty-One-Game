@@ -16,6 +16,7 @@ payload = {
     "JACK": 10,
     "QUEEN": 10,
     "KING": 10,
+    "RANDOM": 11
 }
 
 
