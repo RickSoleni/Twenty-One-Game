@@ -1,6 +1,6 @@
-from deck import cards, new_card
+from deck import Deck
 
-print(cards)
+print(Deck)
 
 payload = {
     "ACE": 1,
