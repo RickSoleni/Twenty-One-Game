@@ -1,6 +1,11 @@
 from deck import Deck
 
-print(Deck)
+game = Deck().new_game()
+
+value1= (game[0]['cards'][0]['value'])
+value2= (game[1]['cards'][0]['value'])
+
+print(f'{value1} and {value2}')
 
 payload = {
     "ACE": 1,
@@ -16,9 +21,7 @@ payload = {
     "JACK": 10,
     "QUEEN": 10,
     "KING": 10,
-    "RANDOM": 11
 }
-
 
 def compare_values(value):
     if value in payload:
@@ -26,42 +29,27 @@ def compare_values(value):
     return value_card
 
 
-def sum_values(card1, card2):
-    value1 = compare_values(card1)
-    value2 = compare_values(card2)
-    return value1 + value2
-
-
-def one_more_card(value):
-    newcard = compare_values(value)
-    return newcard
-
-
 def verifysum(value):
     if value == 21:
-        return "TWENTY ONE!"
+        print("TWENTY ONE!")
+        return value
     if value > 21:
-        return f"LOSE GAME: {value}"
-    while value < 21:
-        newcard = continuegame()
-        print(f"You drawed a: {newcard}")
-        newvalue = value + newcard
-        print(f"Total Sum: {newvalue}")
+        print(f"LOSE GAME, THE TOTAL SUM IS: {value}")
+        return False
+    if value < 21:
+        print(f"THE CURRENT SUM IS: {value}")
+        return True
 
 
-def continuegame():
-    response = input("You want draw a new card? Type Y or N: ")
-    if response == "Y" or "y":
-        card = one_more_card(new_card)
-        return card
+'''
+card1 =(compare_values(value1))
 
+card2 =(compare_values(value2))
 
-def game(value1, value2):
-    total_sum = sum_values(value1, value2)
-    verifysum(total_sum)
+sum_cards = card1 + card2
 
+response = verifysum(sum_cards)
 
-game(cards[0], cards[1])
+if response == True:
 
-
-# resultado
+'''
